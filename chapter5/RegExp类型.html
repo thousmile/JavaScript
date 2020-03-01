@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RegExp 类型</title>
+  <script>
+    /*
+    * 匹配字符串中所有"at"的实例
+    */
+    var pattern1 = /at/g;
+    var test1 = pattern1.test("at6548at56489");
+    console.log('test1 :', test1);
+
+    /*
+    * 匹配第一个"bat"或"cat"，不区分大小写
+    */
+    var pattern2 = /[bc]at/i;
+
+    /*
+    * 匹配所有以"at"结尾的 3 个字符的组合，不区分大小写
+    */
+    var pattern3 = /.at/gi;
+    console.log("---------------- RegExp 属性 -------------------");
+
+    var pattern1 = /\[bc\]at/i;
+    console.log(pattern1.global); //false
+    console.log(pattern1.ignoreCase); //true
+    console.log(pattern1.multiline); //false
+    console.log(pattern1.lastIndex); //0
+    console.log(pattern1.source); //"\[bc\]at"
+    var pattern2 = new RegExp("\\[bc\\]at", "i");
+    console.log(pattern2.global); //false
+    console.log(pattern2.ignoreCase); //true
+    console.log(pattern2.multiline); //false
+    console.log(pattern2.lastIndex); //0
+    console.log(pattern2.source); //"\[bc\]at"
+
+    console.log("---------------- RegExp.exec() 方法 -------------------");
+    var text = "mom and dad and baby";
+    var pattern = /mom( and dad( and baby)?)?/gi;
+    var matches = pattern.exec(text);
+    console.log(matches.index); // 0
+    console.log(matches.input); // "mom and dad and baby"
+    console.log(matches[0]); // "mom and dad and baby"
+    console.log(matches[1]); // " and dad and baby"
+    console.log(matches[2]); // " and baby
+
+  </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

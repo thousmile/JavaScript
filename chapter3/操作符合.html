@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>操作符</title>
+  <script>
+    console.log('--------------- 一元操作符 -------------------');
+    var age = 29;
+    console.log('age :', age);
+    // 先运算再赋值
+    console.log('age :', ++age);
+    // 先赋值再运算
+    console.log('age :', age++);
+
+    var num1 = 1 + 2;
+    console.log('加法 :', num1);
+
+    var num5 = 3 - 2;
+    console.log('减法: ', num5);
+
+    var num2 = 1 * 2;
+    console.log('乘法 :', num2);
+
+    var num3 = 10 / 2;
+    console.log('除法 :', num3);
+
+    var num4 = 10 % 3;
+    console.log('取余 :', num4);
+
+
+    console.log('--------------- 布尔操作符 -------------------');
+    console.log('------ ! --------');
+    console.log(!false); // true
+    console.log(!"blue"); // false
+    console.log(!0); // true
+    console.log(!NaN); // true
+    console.log(!""); // true
+    console.log(!12345); // false
+    console.log('------ !! --------');
+    console.log(!!"blue"); //true
+    console.log(!!0); //false
+    console.log(!!NaN); //false
+    console.log(!!""); //false
+    console.log(!!12345); //true
+
+    /*  逻辑与
+    逻辑与操作符由两个和号（&&）表示，有两个操作数，如下面的例子所示：
+    逻辑与的真值表如下：
+        第一个操作数            第二个操作数            结 果
+        true                    true                true
+        true                    false               false
+        false                   true                false
+        false                   false               false 
+    */
+    var result = true && false;
+    console.log('逻辑与( && )', result);
+
+    /*   第一个操作数        第二个操作数            结 果
+          True                true                true
+          True                false               true
+          false               true                true
+          false               false               false 
+    */
+    var result2 = true || false;
+    console.log('逻辑或( || )', result2);
+
+
+    console.log('--------------- 关系操作符 -------------------');
+    /*  小于（<）、大于（>）、小于等于（<=）和大于等于（>=）这几个关系操作符用于对两个值进行比较 */
+    console.log('1 < 2 :', 1 < 2);
+    console.log('1 > 2 :', 1 > 2);
+    console.log('1 <= 2 :', 1 <= 2);
+    console.log('1 >= 2 :', 1 >= 2);
+
+    var result3 = "Brick" < "alphabet"; //true
+    console.log('"Brick" < "alphabet" :', result3);
+
+    var result4 = "Brick".toLowerCase() < "alphabet".toLowerCase();
+    console.log('"Brick".toLowerCase() < "alphabet".toLowerCase() :', result4);
+
+    var result5 = "23" < "3"; //true
+    console.log('"23" < "3" :', result5);
+
+    var result6 = "23" < 3; //false
+    console.log('"23" < 3 :', result6);
+
+
+    var result7 = NaN < 3; //false
+    console.log('NaN < 3 :', result7);
+
+    var result8 = NaN >= 3; //false
+    console.log('NaN >= 3 :', result8);
+
+
+    console.log('--------------- 相等操作符 -------------------');
+    /** == : 相等和不相等——先转换再比较， 这两个操作符都会
+              先转换操作数（通常称为强制转型），然后再比较它们的相等性。
+
+     * === : 全等和不全等——仅比较而不转换 
+              除了在比较之前不转换操作数之外，
+              全等和不全等操作符与相等和不相等操作符没有什么区别。
+
+    记住： null == undefined 会返回 true，因为它们是类似的值；
+          但 null === undefined 会返回 false，因为它们是不同类型的值。
+    */
+    console.log('("55" == 55) :', ("55" == 55));
+
+    console.log('("55" === 55) :', ("55" === 55));
+
+
+    console.log('--------------- 条件操作符 -------------------');
+
+    var max = (1 > 2) ? '你好' : '你不好';
+    console.log('max :', max);
+
+
+    console.log('--------------- 赋值操作符 -------------------');
+
+    var numw1 = 10;
+    console.log('numw1 :', numw1);
+    numw1 = numw1 + 10;
+    console.log('numw1 :', numw1);
+
+
+    var numw2 = 10;
+    console.log('numw2 :', numw2);
+    numw2 += 10;
+    console.log('numw2 :', numw2);
+
+    /* 每个主要算术操作符（以及个别的其他操作符）都有对应的复合赋值操作符。这些操作符如下所示：
+       乘/赋值（*=）；
+       除/赋值（/=）；
+       模/赋值（%=）；
+       加/赋值（+=）；
+       减/赋值（-=）；
+       左移/赋值（<<=）；
+       有符号右移/赋值（>>=）； 
+       无符号右移/赋值（>>>=）。
+    */
+    numw1 = 265;
+    console.log('( numw1 * 2 ) :', ( numw1 *= 2 ));
+    console.log('( numw1 / 2 ) :', ( numw1 /= 2 ));
+    console.log('( numw1 %= 2 ) :', ( numw1 %= 2 ));
+    console.log('( numw1 += 2 ) :', ( numw1 += 2 ));
+    console.log('( numw1 -= 2 ) :', ( numw1 -= 2 ));
+    console.log('( numw1 <<= 2 ) :', ( numw1 <<= 2 ));
+    console.log('( numw1 >>= 2 ) :', ( numw1 >>= 2 ));
+    console.log('( numw1 >>>= 2 ) :', ( numw1 >>>= 2 ));
+
+
+
+
+  </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

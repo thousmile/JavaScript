@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>数组排序</title>
+
+  <script>
+    var values = [1, 7, 6, 4, 2, 5, 3];
+    values.reverse();
+    console.log('values.reverse() :', values);
+
+    values.sort()
+    console.log('values.sort() :', values);
+
+
+    function compareAsc(value1, value2) {
+      if (value1 < value2) {
+        return -1;
+      } else if (value1 > value2) {
+        return 1;
+      } else {
+        return 0;
+      }
+    }
+    values.sort(compareAsc)
+    console.log('values.sort(compareAsc) :', values);
+
+    function compareDesc(value1, value2) {
+      if (value1 < value2) {
+        return 1;
+      } else if (value1 > value2) {
+        return -1;
+      } else {
+        return 0;
+      }
+    }
+    values.sort(compareDesc)
+    console.log('values.sort(compareDesc) :', values);
+
+
+    console.log('--------------------- Array.concat() ---------------------');
+    var colors = ["red", "green", "blue"];
+    var colors2 = colors.concat("yellow", ["black", "brown"]);
+
+    console.log('colors :', colors);
+    console.log('colors.concat() :', colors2);
+
+
+    console.log('--------------------- Array.slice() ---------------------');
+    var colors3 = ["red", "green", "blue", "yellow", "purple"];
+    var colors4 = colors3.slice(1);
+    var colors5 = colors3.slice(2, 4);
+
+    console.log('colors3 :', colors4);
+    console.log('colors4 :', colors4);
+    console.log('colors5 :', colors5);
+
+    var colors6 = ["red", "green", "blue", "yellow", "purple"];
+    console.log('colors6 :', colors6);
+    var colors7 = colors6.splice(0, 1);
+    console.log('colors6.splice(0,1) :', colors7);
+
+    var colors8 = colors6.splice(2, 0, "white", "violet")
+    console.log('colors6.splice(2,0,"white","violet") :', colors8);
+
+    var colors9 = colors6.splice(2, 1, "Cyan", "Pink")
+    console.log('colors6.splice(2,1,"Cyan","Pink") :', colors9);
+
+
+    console.log('------------ 位置方法 --------------');
+
+    var numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+
+    console.log('numbers.indexOf(10) :', numbers.indexOf(10));
+    console.log('numbers.indexOf(8) :', numbers.indexOf(8));
+
+
+    console.log('numbers.lastIndexOf(10) :', numbers.lastIndexOf(10));
+    console.log('numbers.lastIndexOf(8) :', numbers.lastIndexOf(8));
+
+
+    console.log('------------ 迭代方法 --------------');
+    /*     
+         every()：对数组中的每一项运行给定函数，如果该函数对每一项都返回 true，则返回 true。
+         filter()：对数组中的每一项运行给定函数，返回该函数会返回 true 的项组成的数组。
+         forEach()：对数组中的每一项运行给定函数。这个方法没有返回值。
+         map()：对数组中的每一项运行给定函数，返回每次函数调用的结果组成的数组。
+         some()：对数组中的每一项运行给定函数，如果该函数对任一项返回 true，则返回 true。 
+        */
+
+    var numbers2 = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+
+    var everyResult = numbers2.every(function (item, index, array) {
+      return (item > 2);
+    });
+    console.log('numbers2.every :', everyResult);
+
+    var someResult = numbers2.some(function (item, index, array) {
+      return (item > 2);
+    });
+    console.log('numbers2.some :', someResult);
+
+
+    var filterResult = numbers2.filter(function (item, index, arr) {
+      return (item > 2)
+    })
+    console.log('numbers2.filter :', filterResult);
+
+    var mapResult = numbers2.map(function (item, index) {
+      return (item * index);
+    })
+    console.log('numbers2.map :', mapResult);
+
+    numbers2.forEach(function (item, index) {
+      console.log(index, ' : ', item);
+    })
+
+    console.log('------------ 归并方法 --------------');
+
+    var values3 = [1, 2, 3, 4, 5];
+    var sum1 = values3.reduce(function (prev, cur, index, array) {
+      return prev + cur;
+    });
+    console.log('values3.reduce :', sum1);
+
+    var sum2 = values3.reduceRight(function (prev, cur, index, array) {
+      return prev + cur;
+    });
+    console.log('values3.reduceRight :', sum2);
+
+  </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

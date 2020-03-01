@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Object 类型</title>
+  <script>
+    /*  创建 Object 实例的方式有两种。 */
+
+    /*  第一种是使用 new 操作符后跟 Object 构造函数 */
+    var p1 = new Object();
+    p1.name = "张三";
+    p1.age = 23;
+    console.log('p1 :', p1);
+
+    /* 第二种方式是使用对象字面量表示法 */
+    var p2 = {
+      name: "李四",
+      age: 19
+    };
+    console.log('p2 :', p2);
+
+    console.log('p1["name"] :', p1["name"]);
+    console.log('p1.name :', p1.name);
+
+    console.log('------------ 字面量赋值 ---------------');
+
+    function displayInfo(params) {
+      var output = ""
+      if (typeof params.name == "string") {
+        output += "Name: " + params.name + "\n";
+      }
+      if (typeof params.age == "number") {
+        output += "Age: " + params.age + "\n";
+      }
+      console.log('output :', output);
+    }
+
+    displayInfo({
+      name: "Nicholas",
+      age: 29
+    });
+    displayInfo({
+      name: "Greg"
+    });
+
+
+
+  </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Array 类型</title>
+  <script>
+    /*  创建数组的基本方式有两种。 */
+    /*   第一种是使用 Array 构造函数 */
+    var arr1 = new Array();
+    console.log('arr1 :', arr1);
+
+    var arr2 = new Array("red", "blue", "green");
+    console.log('arr2 :', arr2);
+
+    var arr3 = new Array(2);
+    arr3[0] = "张三";
+    arr3[1] = "李四";
+    arr3[2] = "王五";
+    console.log('arr3 :', arr3);
+
+    /* 也可以省略 new 关键字 */
+    var arr4 = Array(3);
+    console.log('arr4 :', arr4);
+
+
+
+    /* 第二种基本方式是使用数组字面量表示法 */
+    var arr5 = ["red", "blue", "green"]; // 创建一个包含 3 个字符串的数组
+    console.log('arr5 :', arr5);
+
+    var arr6 = []; // 创建一个空数组
+    console.log('arr6 :', arr6);
+
+    var arr7 = [1, 2,]; // 不要这样！这样会创建一个包含 2 或 3 项的数组
+    console.log('arr7 :', arr7);
+
+    var arr8 = [, , , , ,]; // 不要这样！这样会创建一个包含 5 或 6 项的数
+    console.log('arr8 :', arr8);
+
+    console.log('------------ 数组的 length 属性------------');
+
+    var arr12 = ["red", "blue", "green"]; // 创建一个包含 3 个字符串的数组
+    arr12.length = 4;
+    console.log("arr12.length = 4 :", arr12[3]); //undefined
+
+    var arr9 = ["red", "blue", "green"]; // 创建一个包含 3 个字符串的数组
+    arr9[arr9.length] = "black"; //（在位置 3）添加一种颜色
+    arr9[arr9.length] = "brown";
+    console.log('arr9 :', arr9);
+
+    var arr10 = ["red", "blue", "green"]; // 创建一个包含 3 个字符串的数组
+    arr10[99] = "black"; // （在位置 99）添加一种颜色
+    console.log('arr10.length :', arr10.length);
+    console.log('arr10 :', arr10);
+    console.log('arr10.toString() :', arr10.toString());
+    console.log('arr10.valueOf() :', arr10.valueOf());
+
+    console.log('------------ 数组的 join() 方法------------');
+    var arr11 = ["red", "green", "blue"];
+    console.log(arr11.join(",")); //red,green,blue
+    console.log(arr11.join("||")); //red||green||blue
+
+    console.log("------------ instanceof ------------");
+    var arr13 = new Array();
+    if (arr13 instanceof Array) {
+      //对数组执行某些操作
+      console.log('arr13 是 Array');
+    } else {
+      console.log('arr13 不是 Array');
+    }
+
+    console.log("------------ Array.isArray() ------------");
+    if (Array.isArray(arr13)) {
+      //对数组执行某些操作
+      console.log('arr13 是 Array');
+    } else {
+      console.log('arr13 不是 Array');
+    }
+
+    console.log("------------ Array.isArray() ------------");
+    var arr14 = ["red", "blue", "green"]; // 创建一个包含 3 个字符串的数组
+    console.log("arr14.toString()", arr14.toString()); // red,blue,green
+    console.log("arr14.valueOf()", arr14.valueOf()); // red,blue,green
+    console.log("arr14", arr14); // red,blue,green
+
+
+    console.log("------------ toLocaleString() AND  ------------");
+    var person1 = {
+      toLocaleString: function () {
+        return "Nikolaos";
+      },
+      toString: function () {
+        return "Nicholas";
+      }
+    };
+    var person2 = {
+      toLocaleString: function () {
+        return "Grigorios";
+      },
+      toString: function () {
+        return "Greg";
+      }
+    };
+    var arr15 = [person1, person2];
+    console.log(arr15); //Nicholas,Greg
+    console.log(arr15.toString()); //Nicholas,Greg
+    console.log(arr15.toLocaleString()); //Nikolaos,Grigorios
+
+
+  </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

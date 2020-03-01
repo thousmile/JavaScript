@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>数据类型</title>
+  <script>
+    console.log('---------- Boolean类型 --------------- ');
+
+    /**
+     * 数据类型         转换为true的值              转换为false的值
+     * Boolean            true                        false
+     * String           任何非空字符串                  ""（空字符串）
+     * Number     任何非零数字值（包括无穷大）            0和NaN（参见本章后面有关NaN的内容）
+     * Object           任何对象                        null
+     * Undefined        n/a①                          undefined
+     */
+    var testBoolean = "Hello world!";
+    var messageAsBoolean = Boolean(testBoolean);
+    console.log('messageAsBoolean :', messageAsBoolean);
+
+
+    console.log('---------- Number类型 --------------- ');
+    var intNum = 55; // 整数
+    console.log('intNum :', intNum);
+    var octalNum1 = 072; // 八进制的 56
+    console.log('octalNum1 :', octalNum1);
+    var octalNum2 = 0b01010; // 无效的八进制数值——解析为 79
+    console.log('octalNum2 :', octalNum2);
+    var octalNum3 = 0x8685abf; // 无效的八进制数值——解析为 8
+    console.log('octalNum3 :', octalNum3);
+
+    console.log('---------- 浮点类型 --------------- ');
+    var floatNum1 = 1.1;
+    console.log('floatNum1 :', floatNum1);
+    var floatNum2 = 0.1;
+    console.log('floatNum2 :', floatNum2);
+
+    // 有效，但不推荐
+    var floatNum3 = .1;
+    console.log('floatNum3 :', floatNum3);
+
+
+    var floatNum4 = 1.; // 小数点后面没有数字——解析为 1
+    console.log('floatNum4 :', typeof floatNum4 + " : " + floatNum4);
+    var floatNum5 = 10.0; // 整数——解析为 10
+    console.log('floatNum5 :', typeof floatNum5 + " : " + floatNum5);
+
+    console.log('---------- 科学计数法 --------------- ');
+    var floatNum6 = 3.125e7; // 等于 31250000
+    console.log('floatNum6 :', floatNum6);
+
+    console.log('---------- 最大数值 --------------- ');
+    console.log('MAX_VALUE :', Number.MAX_VALUE);
+    console.log('MIN_VALUE :', Number.MIN_VALUE);
+    console.log('NEGATIVE_INFINITY :', Number.NEGATIVE_INFINITY);
+    console.log('POSITIVE_INFINITY :', Number.POSITIVE_INFINITY);
+    var superBig = Number.MAX_VALUE + Number.MAX_VALUE;
+    console.log('superBig :', isFinite(superBig));
+
+
+    console.log('---------- NaN 即非数值（Not a Number) --------------- ');
+    console.log(isNaN(NaN)); //true
+    console.log(isNaN(10)); //false（ 10 是一个数值）
+    console.log(isNaN("10")); //false（可以被转换成数值 10）
+    console.log(isNaN("blue")); //true（不能转换成数值）
+    console.log(isNaN(true)); //false（可以被转换成数值 1）
+
+    console.log('---------- Number() 函数 --------------- ');
+    var num1 = Number("Hello world!"); //NaN
+    console.log('num1 :', num1);
+    var num2 = Number(""); //0
+    console.log('num2 :', num2);
+    var num3 = Number("000011"); //11
+    console.log('num3 :', num3);
+    var num4 = Number(true); //
+    console.log('num4 :', num4);
+
+
+    console.log('---------- parseInt() 函数 --------------- ');
+    console.log('parseInt("1234blue") :', parseInt("1234blue"));
+    console.log('parseInt("") :', parseInt(""));
+    console.log('parseInt("0xA") :', parseInt("0xA"));
+    console.log('parseInt(22.5) :', parseInt(22.5));
+    console.log('parseInt("070") :', parseInt("070"));
+    console.log('parseInt("70") :', parseInt("70"));
+    console.log('parseInt("0xf") :', parseInt("0xf"));
+    console.log('parseInt("dwqgrwqe") :', parseInt("dwqgrwqe"));
+
+    // 按照十六进制解析
+    console.log('parseInt("AF", 16) :', parseInt("AF", 16));
+    console.log('parseInt("AF") :', parseInt("AF"));
+
+    //2 （按二进制解析）
+    console.log('parseInt("10", 2) :', parseInt("10", 2));
+
+    //8 （按八进制解析）
+    console.log('parseInt("10", 8) :', parseInt("10", 8));
+
+    //10 （按十进制解析）
+    console.log('parseInt("10", 10) :', parseInt("10", 10));
+
+    //16 （按十六进制解析）
+    console.log('parseInt("10", 16) :', parseInt("10", 16));
+
+    console.log('---------- parseFloat() 函数 --------------- ');
+    console.log('parseFloat("1234blue") :', parseFloat("1234blue"));
+    console.log('parseFloat("0xA") :', parseFloat("0xA"));
+    console.log('parseFloat("22.5") :', parseFloat("22.5"));
+    console.log('parseFloat("22.34.5") :', parseFloat("22.34.5"));
+    console.log('parseFloat("0908.5") :', parseFloat("0908.5"));
+    console.log('parseFloat("3.125e7") :', parseFloat("3.125e7"));
+
+
+    console.log('----------  String类型 --------------- ');
+    // 以双引号开头的字符串也必须以双引号结尾，而以单引号开头的字符串必须以单引号结尾
+    var firstName = "Nicholas";
+    var lastName = 'Zakas';
+    /**
+     * 1. 字符字面量
+        String 数据类型包含一些特殊的字符字面量，也叫转义序列，用于表示非打印字符，或者具有其
+        他用途的字符。这些字符字面量如下表所示：
+          字 面 量                 含 义
+          \n                      换行
+          \t                      制表
+          \b                      空格
+          \r                      回车
+          \f                      进纸
+          \\                      斜杠
+          \'                      单引号（'），在用单引号表示的字符串中使用。例如： 'He said, \'hey.\''
+          \"                      双引号（"），在用双引号表示的字符串中使用。例如： "He said, \"hey.\""
+          \xnn                    以十六进制代码nn表示的一个字符（其中n为0～F）。例如， \x41表示"A"
+          \unnnn                  以十六进制代码nnnn表示的一个Unicode字符（其中n为0～F）。例如， \u03a3表示希腊字符Σ
+    */
+    var text = "This is the letter sigma: \u03a3.";
+    console.log('text :', text, text.length);
+
+    /* 字符串的特点
+       ECMAScript 中的字符串是不可变的，也就是说，字符串一旦创建，它们的值就不能改变。要改变
+       某个变量保存的字符串，首先要销毁原来的字符串，然后再用另一个包含新值的字符串填充该变量，
+       例如：
+       var lang = "Java";
+       lang = lang + "Script";
+       以上示例中的变量 lang 开始时包含字符串"Java"。而第二行代码把 lang 的值重新定义为"Java"
+       与"Script"的组合，即"JavaScript"。实现这个操作的过程如下：首先创建一个能容纳 10 个字符的
+       新字符串，然后在这个字符串中填充"Java"和"Script"，最后一步是销毁原来的字符串"Java"和字
+       符串"Script"，因为这两个字符串已经没用了 
+     */
+
+    var age = 11;
+    console.log('age :', age.toString());
+    var found = true;
+    console.log('found :', found.toString());
+
+    console.log('-------- toString() -------');
+    var num = 10;
+    console.log(num.toString()); // "10"
+    console.log(num.toString(2)); // "1010"
+    console.log(num.toString(8)); // "12"
+    console.log(num.toString(10)); // "10"
+    console.log(num.toString(16)); // "a"
+
+    console.log('-------- String() -------');
+    console.log(String(10)); // "10"
+    console.log(String(true)); // "true"
+    console.log(String(null)); // "null"
+    var value4;
+    console.log(String(value4)); // "undefined"
+
+    console.log('----------  Object类型 --------------- ');
+    var obj1 = new Object();
+    console.log('obj1 :', typeof obj1 , obj1);
+
+
+
+
+
+  </script>
+
+</head>
+
+<body>
+
+</body>
+
+</html>

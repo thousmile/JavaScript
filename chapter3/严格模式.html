@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>严格模式</title>
+  <script>
+    'use strict';
+
+    console.log('---------- typeof 关键字 --------------- ');
+    var message = "some string";
+    // string
+    console.log(typeof message);
+
+    // string
+    console.log(typeof (message));
+
+    // boolean
+    console.log(typeof true);
+
+    // object
+    console.log(typeof {
+      "name": "张三",
+      "age": 18
+    });
+
+    // number
+    console.log(typeof 95);
+
+    function test1() {
+      console.log('test1()....');
+    }
+
+    // function
+    console.log(typeof test1);
+
+    // undefined
+    var message1;
+    console.log(typeof message1);
+
+    // undefined  表示变量未初始化，或者未定义
+    console.log(typeof age);
+
+    // object  null 值表示一个空对象指针
+    var car = null;
+    console.log(typeof car);
+
+    //  undefined 值是派生自 null 值的，因此 ECMA-262 规定对它们的相等性测试要返回 true
+    console.log(null == undefined);
+  </script>
+
+</head>
+
+<body>
+
+</body>
+
+</html>
