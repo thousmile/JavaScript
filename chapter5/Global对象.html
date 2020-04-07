@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Global对象</title>
+
+  <script>
+    var uri = "http://www.wrox.com/illegal value.htm#start";
+
+    console.log('encodeURI(uri) :', encodeURI(uri));
+    console.log('encodeURIComponent(uri) :', encodeURIComponent(uri));
+
+    var uri2 = "http%3A%2F%2Fwww.wrox.com%2Fillegal%20value.htm%23start";
+    console.log('decodeURI(uri2) :', decodeURI(uri2));
+    console.log('decodeURIComponent(uri2) :', decodeURIComponent(uri2));
+
+
+    console.log('-------------------- eval()方法 --------------------------');
+
+    eval("console.log('hello!')");
+
+    var msg = "hello world";
+    eval("console.log(msg)");
+
+    eval("function hello() { console.log('hello world'); }")
+    hello();
+
+    eval("var msg = 'hello world'; ");
+    console.log('msg :', msg); //"hello world"
+
+    console.log('-------------------- Math --------------------------');
+
+    var max = Math.max(1, 20, 4, 5, 7, 9, 2);
+    console.log('max :', max);
+
+    var min = Math.min(1, 20, 4, 5, 7, 9, 2);
+    console.log('min :', min);
+
+    var values = [1, 2, 3, 4, 5, 6, 7, 8];
+
+    var max1 = Math.max.apply(Math, values);
+    console.log('max1 :', max1);
+
+    var min1 = Math.min.apply(Math, values);
+    console.log('min1 :', min1);
+
+    console.log('------------------- 舍入方法 ------------------------------');
+    /**
+     * Math.ceil()执行向上舍入，即它总是将数值向上舍入为最接近的整数；
+     * Math.floor()执行向下舍入，即它总是将数值向下舍入为最接近的整数；
+     * Math.round()执行标准舍入，即它总是将数值四舍五入为最接近的整数（这也是我们在数学课上学到的舍入规则）。
+     * 
+    */
+    console.log(Math.ceil(25.9)); //26
+    console.log(Math.ceil(25.5)); //26
+    console.log(Math.ceil(25.1)); //26
+    console.log(Math.round(25.9)); //26
+    console.log(Math.round(25.5)); //26
+    console.log(Math.round(25.1)); //25
+    console.log(Math.floor(25.9)); //25
+    console.log(Math.floor(25.5)); //25
+    console.log(Math.floor(25.1)); //25
+
+    console.log('--------------------- random()方法 ---------------------');
+
+    var num = Math.floor(Math.random() * 10 + 1);
+    console.log('num :', num);
+
+    var num2 = Math.floor(Math.random() * 9 + 2);
+    console.log('num2 :', num2);
+
+
+    function selectNum(lowerVal, upperVal) {
+      var choices = upperVal - lowerVal + 1;
+      return Math.floor(Math.random() * choices + lowerVal);
+    }
+
+    var num3 = selectNum(2, 10);
+    var num4 = selectNum(10, 50);
+    console.log('num3 :', num3);
+    console.log('num4 :', num4);
+
+    var colors = ["red", "green", "blue", "yellow", "black", "purple", "brown"];
+    var color = colors[selectNum(0, colors.length - 1)];
+    console.log(color); // 可能是数组中包含的任何一个字符串
+
+
+  </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
