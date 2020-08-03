@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>原型链</title>
+  <script>
+    function SuperType() {
+      this.property = true
+    }
+
+    SuperType.prototype.getSuperValue = function () {
+      return this.property
+    }
+
+    function SubType() {
+      this.subproperty = false
+    }
+
+    SubType.prototype = new SuperType()
+
+    SubType.prototype.getSubValue = function () {
+      return this.subproperty;
+    }
+
+    var instance = new SubType()
+
+    console.log('instance.getSuperValue() :>> ', instance.getSuperValue());
+
+    console.log('instance instanceof Object :>> ', instance instanceof Object);
+    console.log('instance instanceof SubType :>> ', instance instanceof SubType);
+    console.log('instance instanceof SuperType :>> ', instance instanceof SuperType);
+
+    console.log('Object.prototype.isPrototypeOf(instance) :>> ', Object.prototype.isPrototypeOf(instance));
+    console.log('SubType.prototype.isPrototypeOf(instance) :>> ', SubType.prototype.isPrototypeOf(instance));
+    console.log('SuperType.prototype.isPrototypeOf(instance) :>> ', SuperType.prototype.isPrototypeOf(instance));
+    
+  </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

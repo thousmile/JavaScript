@@ -1,14 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>寄生构造函数模式</title>
   <script>
-    
+
+    function Person(name, age, job) {
+      var obj = new Object();
+      obj.name = name;
+      obj.age = age;
+      obj.job = job;
+      obj.sayName = function () {
+        console.log('this.name :>> ', this.name);
+      };
+      return obj;
+    }
+
+    var friend = new Person("Nicholas", 29, "Software Engineer");
+    friend.sayName(); //"Nicholas"
+
+    function SpecialArray() {
+      var values = new Array();
+      values.push.apply(values, arguments);
+      values.toPipedString = function () {
+        return this.join("|");
+      };
+      return values;
+    }
+
+    var colors = new SpecialArray("red", "blue", "green");
+    console.log('colors.toPipedString(); :>> ', colors.toPipedString());
+
   </script>
 </head>
+
 <body>
-  
+
 </body>
+
 </html>
