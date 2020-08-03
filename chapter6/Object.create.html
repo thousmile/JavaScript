@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Object.create()</title>
+  <script>
+    var person = {
+      name: "Nicholas",
+      friends: ["Shelby", "Court", "Van"]
+    };
+    var anotherPerson = Object.create(person);
+    anotherPerson.name = "Greg";
+    anotherPerson.friends.push("Rob");
+
+    var yetAnotherPerson = Object.create(person);
+    yetAnotherPerson.name = "Linda";
+    yetAnotherPerson.friends.push("Barbie");
+
+    console.log('person.friends :>> ', person.friends);
+
+    var anotherPerson2 = Object.create(person, {
+      name: {
+        value: "Greg"
+      }
+    });
+
+    console.log('anotherPerson2.name :>> ', anotherPerson2.name);
+  </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
