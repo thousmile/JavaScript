@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>理解对象</title>
+  <script>
+    var person = new Object();
+    person.name = "Nicholas";
+    person.age = 29;
+    person.job = "Software Engineer";
+    person.sayName = function () {
+      console.log('person.sayName :>> ', this.name);
+    };
+
+    person.sayName()
+
+    var person1 = {
+      name: "Nicholas",
+      age: 29,
+      job: "Software Engineer",
+      sayName: function () {
+        console.log('person1.sayName :>> ', this.name);
+      }
+    };
+
+    person1.sayName()
+
+
+
+    var person2 = {};
+    Object.defineProperty(person2, "name", {
+      writable: false,
+      value: "Nicholas"
+    });
+
+    console.log("person2.name :>> ", person2.name);
+    person2.name = "Greg";
+    console.log("person2.name :>> ", person2.name);
+
+    var person3 = {};
+    Object.defineProperty(person3, "name", {
+      writable: false,
+      value: "Nicholas"
+    });
+
+    console.log("person3.name :>> ", person3.name);
+    delete person3.name
+    console.log("person3.name :>> ", person3.name);
+
+
+    var book = {
+      _year: 2004,
+      edition: 1
+    };
+
+    Object.defineProperty(book, "year", {
+      get: function () {
+        return this._year;
+      },
+      set: function (newVal) {
+        if (newVal > 2004) {
+          this._year = newVal
+          this.edition += newVal - 2004
+        }
+      }
+    })
+
+
+    book._year = 2005;
+    console.log('book.edition :>> ', book.edition);
+
+
+  </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
