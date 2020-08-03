@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>借用构造函数</title>
+  <script>
+
+    function SuperType() {
+      this.colors = ["red", "blue", "green"];
+    }
+
+    function SubType() {
+      //继承了 SuperType
+      SuperType.call(this);
+    }
+
+    var instance1 = new SubType();
+    instance1.colors.push("black");
+    console.log('nstance1.colors :>> ', instance1.colors); //"red,blue,green,black"
+
+    var instance2 = new SubType();
+    console.log('instance2.colors :>> ', instance2.colors); //"red,blue,green"
+
+
+  </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
