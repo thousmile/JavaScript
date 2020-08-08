@@ -1,14 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>函数表达式</title>
   <script>
-    
+    function functionName(arg0, arg1, arg2) {
+      //函数体
+    }
+    console.log('functionName.name :>> ', functionName.name);
+
+    sayHi();
+
+    function sayHi() {
+      console.log('hi....');
+    }
+
+    /*     
+    sayHi2(); //错误：函数还不存在
+      var sayHi2 = function () {
+      console.log('hi....');
+    };
+    */
+
+    var factorial = (function f(num) {
+      if (num <= 1) {
+        return 1;
+      } else {
+        return num * f(num - 1);
+      }
+    });
+
+    console.log('factorial(5) :>> ', factorial(5));
+
   </script>
 </head>
+
 <body>
-  
+
 </body>
+
 </html>
