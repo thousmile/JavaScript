@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>时间间隔</title>
+  <script>
+    Date.prototype.format = function (fmt) {
+      var o = {
+        "M+": this.getMonth() + 1,
+        "d+": this.getDate(),
+        "h+": this.getHours(),
+        "m+": this.getMinutes(),
+        "s+": this.getSeconds(),
+        "q+": Math.floor((this.getMonth() + 3) / 3),
+        "S": this.getMilliseconds()
+      };
+      if (/(y+)/.test(fmt)) fmt = fmt.replace(RegExp.$1, (this.getFullYear() + "").substr(4 - RegExp.$1.length));
+      for (var k in o) {
+        if (new RegExp("(" + k + ")").test(fmt)) fmt = fmt.replace(RegExp.$1, (RegExp.$1.length == 1) ? (o[k]) : (("00" + o[k]).substr(("" + o[k]).length)));
+      }
+      return fmt;
+    }
+
+    function diffDate(date1, date2) {
+      let begin = new Date(date1);
+      let end = new Date(date2);
+      let swap = false;
+      if (begin > end) {
+        let tmp = begin;
+        begin = end;
+        end = tmp;
+        swap = true;
+      }
+      let d1 = begin.getDate();
+      let m1 = begin.getMonth() + 1;
+      let y1 = begin.getFullYear();
+      let d2 = end.getDate();
+      let m2 = end.getMonth() + 1;
+      let y2 = end.getFullYear();
+      var getMonthDays = function (y, m) {
+        var aMonthDays = [0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+        if (m == 2 && ((y % 400 == 0) || (y % 4 == 0 && y % 100 != 0))) {
+          return 29;
+        }
+        return aMonthDays[m];
+      };
+      let y, m, d
+      let tempD = 0
+      let tmpM = 0
+      let tmpY = 0
+      if (d2 >= d1) {
+        d = d2 - d1
+      } else {
+        tmpM = -1
+        d = getMonthDays(y1, m1) + d2 - d1
+      }
+      if (m2 + tmpM >= m1) {
+        m = m2 + tmpM - m1
+      } else {
+        tmpY = -1
+        m = 12 + m2 + tmpM - m1
+      }
+      y = y2 + tmpY - y1
+      let str = "";
+      if (y > 0) {
+        str = y + '年 ' + ("0" + m).substr(-2) + "月 " + ("0" + d).substr(-2) + '天 '
+      } else if (m > 0) {
+        str = m + "月 " + ("0" + d).substr(-2) + '天 '
+      } else if (d > 0) {
+        str = d + '天 '
+      }
+      return `${date1} 和 ${date2} 相差 ${str}`;
+    }
+    
+    var startDate = "2020-04-05";
+    var currentDate = new Date().format("yyyy-MM-dd");
+    document.write(`<h1>${diffDate(startDate, currentDate)}</h1>`);
+  </script>
+</head>
+
+<body>
+
+</body>
+
+
+</html>
