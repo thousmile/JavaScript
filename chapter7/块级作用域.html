@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>块级作用域</title>
+  <script>
+
+    (function () {
+      console.log('块级作用域 :>> ');
+    })();
+
+    (function () {
+      var now = new Date();
+      console.log('now.getMonth() :>> ', now.getMonth());
+      console.log("Happy new year!");
+    })();
+
+  </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

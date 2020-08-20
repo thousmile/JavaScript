@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>window 对象</title>
+  <script>
+    var age = 29;
+    function sayAge() {
+      console.log('age :>> ', age);
+    }
+
+    console.log('window.age :>> ', window.age);
+
+    sayAge();
+
+    window.sayAge();
+
+
+    window.color = "red";
+
+    delete window.age;
+
+    delete window.color;
+
+    console.log('delete window.age :>> ', window.age);
+    console.log('delete window.color :>> ', window.color);
+
+
+    //这里不会抛出错误，因为这是一次属性查询
+    //newValue 的值是 undefined
+    var newValue = window.oldValue;
+
+
+    //这里会抛出错误，因为 oldValue 未定义
+    var newValue = oldValue;
+
+
+
+
+  </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

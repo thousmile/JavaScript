@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>获取窗口大小</title>
+  <script>
+    var pageWidth = window.innerWidth,
+      pageHeight = window.innerHeight;
+
+    if (typeof pageWidth != "number") {
+      if (document.compatMode == "CSS1Compat") {
+        pageWidth = document.documentElement.clientWidth;
+        pageHeight = document.documentElement.clientHeight;
+      } else {
+        pageWidth = document.body.clientWidth;
+        pageHeight = document.body.clientHeight;
+      }
+    }
+
+    console.log('pageWidth :>> ', pageWidth);
+    console.log('pageHeight :>> ', pageHeight);
+
+    document.write(`<h1> pageWidth : ${pageWidth}</h1>`)
+    document.write(`<h1> pageHeight : ${pageHeight}</h1>`)
+
+  </script>
+
+</head>
+
+<body>
+
+</body>
+
+</html>
