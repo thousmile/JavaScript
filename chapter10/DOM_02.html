@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DOM 02</title>
+</head>
+
+<body>
+
+  <ul id="myList">
+    <li>item 1</li>
+    <li>item 2</li>
+    <li>item 3</li>
+  </ul>
+
+  <script>
+    var myList = document.getElementById("myList")
+
+    var deepList = myList.cloneNode(true);
+
+    console.log(deepList.childNodes.length); //3（IE < 9）或 7（其他浏览器）
+
+    var shallowList = myList.cloneNode(false);
+    console.log(shallowList.childNodes.length); //0
+
+
+    var html = document.documentElement; //取得对<html>的引用
+    console.log('html :>> ', html);
+    console.log(html === document.childNodes[0]); //false 
+    console.log(html === document.firstChild); //false
+
+    var body = document.body
+    console.log('body :>> ', body);
+
+    var doctype = document.doctype
+    console.log('doctype :>> ', doctype);
+
+    var title = document.title
+    console.log('title :>> ', title);
+
+    document.title = `New ${title}`
+
+    var url = document.URL
+    console.log('url :>> ', url);
+
+    var domain = document.domain;
+    console.log('domain :>> ', domain);
+
+    //取得来源页面的 URL
+    var referrer = document.referrer;
+    console.log('referrer :>> ', referrer);
+
+  </script>
+</body>
+
+</html>

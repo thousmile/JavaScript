@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DOM 03</title>
+</head>
+
+<body>
+
+  <fieldset>
+    <legend>Which color do you prefer?</legend>
+    <ul>
+      <li><input type="radio" value="red" name="color" id="colorRed">
+        <label for="colorRed">Red</label></li>
+      <li><input type="radio" value="green" name="color" id="colorGreen">
+        <label for="colorGreen">Green</label></li>
+      <li><input type="radio" value="blue" name="color" id="colorBlue">
+        <label for="colorBlue">Blue</label></li>
+    </ul>
+  </fieldset>
+
+  <script>
+    var radios = document.getElementsByName("color");
+
+    var hasXmlDom = document.implementation.hasFeature("XML", "1.0");
+
+    console.log('document.hasXmlDom :>> ', document.hasXmlDom);
+
+    console.log('document.implementation :>> ', document.implementation);
+
+    console.log('document.inputEncoding :>> ', document.inputEncoding);
+
+    document.write("<strong>" + (new Date()).toString() + "</strong>");
+
+    window.onload = function () {
+      document.write("Hello world!");
+    };
+
+  </script>
+
+</body>
+
+</html>

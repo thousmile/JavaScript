@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>能力检测2</title>
+  <script>
+    //确定浏览器是否支持 Netscape 风格的插件
+    var hasNSPlugins = !!(navigator.plugins && navigator.plugins.length);
+    console.log('hasNSPlugins :>> ', hasNSPlugins);
+
+    //确定浏览器是否具有 DOM1 级规定的能力
+    var hasDOM1 = !!(document.getElementById && document.createElement && document.getElementsByTagName);
+    console.log('hasDOM1 :>> ', hasDOM1);
+
+    console.log('platform :>> ', navigator.platform);
+
+  </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

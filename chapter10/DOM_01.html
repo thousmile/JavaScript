@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DOM 01 </title>
+</head>
+
+<body>
+  <header></header>
+  <div id="someNode">
+    <p>dadwa</p>
+    <span>trgrt</span>
+
+  </div>
+  <footer></footer>
+
+  <script>
+    var someNode = document.getElementById("someNode")
+    console.log('someNode :>> ', someNode);
+    if (someNode.nodeType == Node.ELEMENT_NODE) { //在 IE 中无效
+      console.log('"Node is an element." :>> ')
+    }
+
+    if (someNode.nextSibling === null) {
+      console.log("Last node in the parent’s childNodes list.");
+    } else if (someNode.previousSibling === null) {
+      console.log("First node in the parent’s childNodes list.");
+    }
+
+
+    var newNode = document.createTextNode("Water");
+    var returnedNode = someNode.appendChild(newNode);
+    console.log('newNode :>> ', newNode);
+    console.log(returnedNode == newNode); //true 
+    console.log(someNode.lastChild == newNode); //true
+
+    console.log('someNode.firstChild :>> ', someNode.firstChild);
+    var formerFirstChild = someNode.removeChild(someNode.firstChild);
+    console.log('formerFirstChild :>> ', formerFirstChild);
+
+  </script>
+</body>
+
+</html>
