@@ -21,6 +21,9 @@
     </ul>
   </fieldset>
 
+  <div id="myDiv" class="bd" title="Body text" lang="en" dir="ltr">王陈陈</div>
+
+
   <script>
     var radios = document.getElementsByName("color");
 
@@ -34,9 +37,19 @@
 
     document.write("<strong>" + (new Date()).toString() + "</strong>");
 
-    window.onload = function () {
-      document.write("Hello world!");
-    };
+    var myDiv = document.getElementById("myDiv");
+
+    console.log(myDiv.tagName, myDiv.id, myDiv.className, myDiv.title, myDiv.lang, myDiv.dir); //"DIV" 
+
+    console.log(myDiv.tagName == myDiv.nodeName); //true
+
+    var element = document.createElement("div");
+    element.className = "message";
+
+    var textNode = document.createTextNode("Hello world!");
+    element.appendChild(textNode);
+    
+    document.body.appendChild(element);
 
   </script>
 
