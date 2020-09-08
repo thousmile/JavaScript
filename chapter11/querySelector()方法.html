@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>querySelector()方法</title>
+  <style>
+    .button {
+      width: 50px;
+      height: 50px;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="myDiv">
+    <em>aaa</em>
+    <em>bbb</em>
+  </div>
+
+  <ul>
+    <li class="selected">11111</li>
+    <li class="selected">22222</li>
+    <li>33333</li>
+  </ul>
+
+  <img src="./images/3ccdec5.jpg" class="button" alt="" srcset="">
+  <img src="./images/3ccdec5.jpg" class="button" alt="" srcset="">
+
+  <p class="aaa">
+    <strong>aaaaaaa</strong>
+    <strong>bbbbbbb</strong>
+  </p>
+
+  <button id="myButton">按钮</button>
+
+  <script>
+    //取得 body 元素
+    var body = document.querySelector("body");
+    console.log('body :>> ', body);
+
+    //取得 ID 为"myDiv"的元素
+    var myDiv = document.querySelector("#myDiv");
+    console.log('myDiv :>> ', myDiv);
+
+    //取得类为"selected"的第一个元素
+    var selected = document.querySelector(".selected");
+    console.log('selected :>> ', selected);
+
+
+    //取得类为"button"的第一个图像元素
+    var img = document.body.querySelector("img.button");
+    console.log('img :>> ', img);
+
+
+    //取得某<div>中的所有<em>元素（类似于 getElementsByTagName("em")）
+    var ems = document.getElementById("myDiv").querySelectorAll("em");
+    console.log('ems :>> ', ems);
+
+    //取得类为"selected"的所有元素
+    var selecteds = document.querySelectorAll(".selected");
+    console.log('selecteds :>> ', selecteds);
+
+
+    //取得所有<p>元素中的所有<strong>元素
+    var strongs = document.querySelectorAll("p strong");
+    console.log('strongs :>> ', strongs);
+
+
+    if (matchesSelector(document.body, "body.aaa")) {
+      console.log('matchesSelector: true');
+    } else {
+      console.log('matchesSelector: false');
+    }
+
+    function matchesSelector(element, selector) {
+      if (element.matchesSelector) {
+        return element.matchesSelector(selector);
+      } else if (element.msMatchesSelector) {
+        return element.msMatchesSelector(selector);
+      } else if (element.mozMatchesSelector) {
+        return element.mozMatchesSelector(selector);
+      } else if (element.webkitMatchesSelector) {
+        return element.webkitMatchesSelector(selector);
+      } else {
+        throw new Error("Not supported.");
+      }
+    }
+
+    var button = document.getElementById("myButton");
+    button.focus();
+    console.log('document.activeElement === button :>> ', document.activeElement === button);
+    console.log('document.hasFocus() :>> ', document.hasFocus());
+
+  </script>
+
+</body>
+
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DOM 04</title>
+</head>
+
+<body>
+
+  <fieldset>
+    <legend>Which color do you prefer?</legend>
+    <ul>
+      <li><input type="radio" value="red" name="color" id="colorRed">
+        <label for="colorRed">Red</label></li>
+      <li><input type="radio" value="green" name="color" id="colorGreen">
+        <label for="colorGreen">Green</label></li>
+      <li><input type="radio" value="blue" name="color" id="colorBlue">
+        <label for="colorBlue">Blue</label></li>
+    </ul>
+  </fieldset>
+
+  <script>
+    var html = document.documentElement; //取得对<html>的引用
+    console.log(html === document.childNodes[0]); //true
+    console.log(html === document.firstChild); //true
+
+  </script>
+
+</body>
+
+</html>
